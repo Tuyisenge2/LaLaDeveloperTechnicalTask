@@ -1,0 +1,14 @@
+export const PORT = process.env.PORT;
+export const SERVER_URL=process.env.SERVER_URL;
+export const GOOGLE_CALLBACK_URL=process.env.GOOGLE_CALLBACK_URL
+export const DEPLOYED_URL=process.env.DEPLOYED_URL
+export const TOKEN_SECRET=process.env.TOKEN_SECRET
+export const EMAIL=process.env.EMAIL
+export const SENDER_NAME=process.env.SENDER_NAME
+export const PASSWORD=process.env.PASSWORD
+export const SESSION_SECRET=process.env.SESSION_SECRET
+export const GOOGLE_CLIENT_ID=process.env.GOOGLE_CLIENT_ID
+export const GOOGLE_SECRET_ID=process.env.GOOGLE_SECRET_ID
+export const CLOUDINARY_API_KEY= process.env.CLOUDINARY_API_KEY;
+export const CLOUDINARY_API_SECRET= process.env.CLOUDINARY_API_SECRET;
+export const CLOUDINARY_CLOUD_NAME= process.env.CLOUDINARY_CLOUD_NAME;
