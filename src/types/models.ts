@@ -29,26 +29,50 @@ export type RolescreationAttributes = Optional<
 
 export interface propertiesModelAttributes {
   id?: string;
-  name?: string;
+  title?: string;
   price?: number;
-  images?: string[];
-  publisher?:string;
+  hostId?: string;
   province?: string;
   district?: string;
   sector?: string;
-  category?: string;
-  expiryDate?: Date;
-  isAvailable?: boolean;
+  isAvailable?: string;
   createdAt?: Date;
   updatedAt?: Date;
-  description?:string;
-	bathRooms?:number;
-	plotSize?:number; 
-	furnished?:boolean;
-	bedRooms?:number;
-	totalFloors?:number;
+  description?: string;
+  host?: UserCreationAttributes
 }
 export type propertiescreationAttributes = Optional<
   propertiesModelAttributes,
   "id" | "createdAt" | "updatedAt"
+>;
+
+export interface BookingsModelAttributes {
+  id?: string;
+  propertyId: string;
+  renterId: string;
+  checkInDate: Date;
+  checkOutDate: Date;
+  status?: "pending" | "confirmed" | "canceled";
+  property?:propertiescreationAttributes;
+  createdAt?: Date;
+  updatedAt?: Date;
+
+}
+
+export type BookingsCreationAttributes = Optional<
+  BookingsModelAttributes,
+  "id" | "status" | "createdAt" | "updatedAt"
+>;
+
+export interface BlacklistedTokenModelAttributes {
+  id?: string;
+  token: string;
+  createdAt?: Date;
+  updatedAt?: Date;
+
+}
+
+export type BlacklistedTokenCreationAttributes = Optional<
+  BlacklistedTokenModelAttributes,
+  "id" |  "createdAt" | "updatedAt"
 >;

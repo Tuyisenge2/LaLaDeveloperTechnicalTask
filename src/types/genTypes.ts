@@ -3,8 +3,8 @@ import { Request } from "express";
 export interface ExpandedRequest extends Request {
   token?: any;
   category?: string;
-  publisher?: string;
+  hostId?: string;
   info?: { message: string };
-  imageCloud?: any;
-  catId?: string;
+  validUser?:any;
+  property?:any;
 }

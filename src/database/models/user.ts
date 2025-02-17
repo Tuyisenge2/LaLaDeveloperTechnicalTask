@@ -17,13 +17,18 @@ export class User extends Model<UserModelAttributes, UserCreationAttributes> {
   public updatedAt!: Date;
   public static associate(models: {
     role: typeof database_models.role;
- //   Property: typeof database_models.Property;
+    Property: typeof database_models.Property;
+    Booking: typeof database_models.Booking;
   }) {
     User.belongsTo(models.role, { as: "Roles", foreignKey: "role" });
-    // this.hasMany(models.Property, {
-    //   as: "publishing",
-    //   foreignKey: "publisher",
-    // });
+    this.hasMany(models.Property, {
+      as: "properties",
+      foreignKey: "hostId",
+    });
+    this.hasMany(models.Booking,{
+        as:"renter",
+        foreignKey:"renterId"
+    })
   }
 }
 const user_model = (sequelize: Sequelize) => {
@@ -74,8 +79,7 @@ const user_model = (sequelize: Sequelize) => {
     {
       hooks: {
         afterCreate: async (record, options) => {
-          //  const roleTenont= await database_models.role.findOne({where:{roleName:'tenant'}})
-          //await User.update({role:roleTenont?.dataValues.id},{where:{id:record.dataValues.id}})
+     
         },
       },
       sequelize,

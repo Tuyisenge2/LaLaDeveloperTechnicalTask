@@ -1,6 +1,5 @@
 import express, { Request, Response } from "express"; 
 import session from "express-session"
-//import docs from "./documentation"
 import cors from "cors";
 import genRoutes from "./routes";
 const app = express(); 

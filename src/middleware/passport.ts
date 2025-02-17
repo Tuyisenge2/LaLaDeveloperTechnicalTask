@@ -72,12 +72,6 @@ passport.use(
       try {
         const user = await database_models.User.findOne({
           where: { email },
-          // include: [
-          //   {
-          //     model: database_models.role,
-          //     as: "Roles",
-          //   },
-          // ],
         });
         const my_user = user?.toJSON();
         if (!user)

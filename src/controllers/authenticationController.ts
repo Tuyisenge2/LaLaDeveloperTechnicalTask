@@ -28,11 +28,11 @@ export const registerUser = async (
             const token = generateToken({
               id: user.id as string,
               email: user.email as string,
+              role: user.role as string,
             });
             return res.json({
               status: 201,
-              message:
-                "Account Created successfully",
+              message: "Account Created successfully",
               token: token,
             });
           });
@@ -68,6 +68,7 @@ export const login = async (
         const authenticationtoken = generateToken({
           id: user.id as string,
           email: user.email as string,
+          role: user.role as string,
         });
         return res
           .status(200)
@@ -102,6 +103,7 @@ export const loginWithGoogle = async (
           const authenticationtoken = generateToken({
             id: user.id as string,
             email: user.email as string,
+            role: user.role as string,
           });
           return res.status(200).json({
             message: "Login successfully!",
@@ -128,4 +130,19 @@ export const loginWithGoogle = async (
   }
 };
 
-
+export const logout =  async (req:ExpandedRequest, res:Response) => {
+    try {
+    const token = req.headers.authorization?.split(" ")[1];
+    if (token) {
+    await database_models.blacklistedToken.create({
+      token,
+    });
+  }
+ return res.status(200).json({ message: "Logged out successfully" });
+  } catch (error) {
+    return res.status(500).json({
+      message: "SERVER ERROR",
+      error
+    });
+  } 
+};
