@@ -26,7 +26,6 @@ module.exports = {
       },
       role: {
         type: Sequelize.UUID,
-
         references: {
           model: "roles",
           key: "id",

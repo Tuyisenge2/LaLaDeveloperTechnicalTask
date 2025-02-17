@@ -55,8 +55,8 @@ const properties_model = (sequelize: Sequelize) => {
         type: DataTypes.BIGINT,
       },
       hostId: {
-        allowNull: true,
-        type: DataTypes.STRING,
+        type: DataTypes.UUID,
+        defaultValue: UUIDV4,
         references: {
           model: "users",
           key: "id",
