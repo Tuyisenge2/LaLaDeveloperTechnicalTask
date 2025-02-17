@@ -6,13 +6,13 @@ module.exports = {
   async up (queryInterface, Sequelize) {  
       await queryInterface.bulkInsert('roles', [
         {
-        id: uuidv4(),
+          id: "11afd4f1-0bed-4a3b-8ad5-0978dabf8fcd",
         roleName: 'Hosts',
         createdAt: new Date(),
         updatedAt: new Date(),
       }
       ,    {
-        id: uuidv4(),
+        id: "12afd4f1-0bed-4a3b-8ad5-0978dabf8fcd",
         roleName: 'Renters',
         createdAt: new Date(),
         updatedAt: new Date(),
