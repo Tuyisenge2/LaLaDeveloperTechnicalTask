@@ -7,8 +7,8 @@ import { connectionToDatabase } from "./database/config/db.config";
 const startApp=()=>{
    const server=http.createServer(app);
    connectionToDatabase();
-   server.listen(PORT || 4000,()=>{
-      console.log("server started on 4000")
+   server.listen(PORT || 5000,()=>{
+      console.log("server started on 5000")
    })
 }
 startApp();

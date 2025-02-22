@@ -13,9 +13,12 @@ export const createProperty = async (req: ExpandedRequest, res: Response) => {
       isAvailable,
       description,
     } = req.body;
+    const imageFile: any = req.imageCloud;
+
     const property = await database_models.Property.create({
       title,
       price,
+      images: imageFile,
       province,
       district,
       sector,

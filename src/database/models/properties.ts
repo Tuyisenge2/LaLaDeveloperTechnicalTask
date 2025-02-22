@@ -22,6 +22,7 @@ class Properties extends Model<
   public createdAt!: Date;
   public updatedAt!: Date;
   public description!: string;
+  public images:any;
   public static associate(models: {
     User: typeof database_models.User;
     Booking: typeof database_models.Booking;
@@ -61,6 +62,10 @@ const properties_model = (sequelize: Sequelize) => {
           model: "users",
           key: "id",
         },
+      },
+      images: {
+        allowNull: true,
+        type: DataTypes.ARRAY(DataTypes.STRING),
       },
       province: {
         allowNull: true,

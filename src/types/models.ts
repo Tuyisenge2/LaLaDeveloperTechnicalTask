@@ -39,7 +39,8 @@ export interface propertiesModelAttributes {
   createdAt?: Date;
   updatedAt?: Date;
   description?: string;
-  host?: UserCreationAttributes
+  host?: UserCreationAttributes;
+  images?:any;
 }
 export type propertiescreationAttributes = Optional<
   propertiesModelAttributes,

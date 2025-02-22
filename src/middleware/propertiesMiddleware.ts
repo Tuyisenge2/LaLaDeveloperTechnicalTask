@@ -99,4 +99,18 @@ export const checkUserRole = (requiredRole: string) => {
       return res.status(500).json({ message: "Internal Server Error" });
     }
   };
+}
+
+export const imageProvidingmiddleware = (
+  req: ExpandedRequest,
+  res: Response,
+  next: NextFunction
+) => {
+  const imageFile = req.files;
+  if (!imageFile || imageFile.length === 0) {
+    return res.status(400).json({
+      message: "please,provide some images",
+    });
+  }
+  next();
 };

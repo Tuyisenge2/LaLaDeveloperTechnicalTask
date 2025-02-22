@@ -18,7 +18,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
 app.use('/api',genRoutes);
 app.use('/',(req:Request,res:Response)=>{
 res.status(200).json({

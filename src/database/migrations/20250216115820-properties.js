@@ -23,8 +23,6 @@ module.exports = {
       }, 
        hostId: {
         type: Sequelize.UUID,
-        allowNull:true,
-        
         references: {
           model: "users",
           key: "id",
